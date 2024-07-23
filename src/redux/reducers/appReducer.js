@@ -36,6 +36,7 @@ export const signIn = (params) => async (dispatch) => {
     const response = await axios.get(API_ENDPOINT, { params });
     dispatch(signInSuccess(response.data));
   } catch (error) {
+    window.alert('Something went wrong!', error);
     dispatch(signInFailure(error.response.data));
   }
 };

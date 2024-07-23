@@ -22,7 +22,7 @@ const sortPatients = (a, b) => {
 };
 
 const groupPatients = (patients) => {
-  const sortedPatients = patients.filter((p) => !p.is_completed).toSorted(sortPatients);
+  const sortedPatients = patients?.filter((p) => !p.is_completed).toSorted(sortPatients);
   return groupBy(sortedPatients, 'type');
 };
 
@@ -40,7 +40,7 @@ const PatientList = () => {
               <div key={type}>
                 <StyledType>{type.toUpperCase()}</StyledType>
                 {list.map((patient) => (
-                  <PatientItem patient={patient} key={patient.name} />
+                  <PatientItem patient={patient} key={patient._id} />
                 ))}
               </div>
             );
